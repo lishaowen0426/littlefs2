@@ -2,9 +2,9 @@
 
 use core::{cell::RefCell, cmp, mem, slice};
 
+use crate::littlefs2_sys as ll;
 use bitflags::bitflags;
 use generic_array::typenum::marker_traits::Unsigned;
-use littlefs2_sys as ll;
 use serde::{Deserialize, Serialize};
 
 // so far, don't need `heapless-bytes`.

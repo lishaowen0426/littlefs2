@@ -21,8 +21,10 @@ heapless = "0.7"
 default-features = false
 version = "0.2"
 
-[dependencies.littlefs2-sys]
-version = "0.1.6"
+[build-dependencies]
+bindgen = { version = "0.65.1", default-features = false , features = ["runtime"] }
+cc = "1"
+
 
 [dependencies.serde]
 version = "1"
@@ -40,9 +42,11 @@ default = ["dir-entry-path", "serde"]
 # use experimental closure-based API
 dir-entry-path = []
 # enable assertions in backend C code
-ll-assertions = ["littlefs2-sys/assertions"]
+#ll-assertions = ["littlefs2-sys/assertions"]
+assertions = []
 # enable trace in backend C code
-ll-trace = ["littlefs2-sys/trace"]
+#ll-trace = ["littlefs2-sys/trace"]
+trace = []
 c-stubs = []
 
 log-all = []
@@ -57,3 +61,4 @@ log-error = []
 # member `char name[LFS_NAME_MAX+1]`.
 # This means that if we change `traits::Storage::FILENAME_MAX_PLUS_ONE`,
 # we need to pass this on!
+

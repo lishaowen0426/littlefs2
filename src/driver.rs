@@ -1,8 +1,8 @@
 //! The `Storage`, `Read`, `Write` and `Seek` driver.
 #![allow(non_camel_case_types)]
 
+use crate::littlefs2_sys as ll;
 use generic_array::ArrayLength;
-use littlefs2_sys as ll;
 
 use crate::io::Result;
 

@@ -126,7 +126,8 @@ assert_eq!(&buf, b"black smoke");
 */
 
 /// Low-level bindings
-pub use littlefs2_sys as ll;
+//pub use littlefs2_sys as ll;
+pub mod littlefs2_sys;
 
 #[macro_use]
 extern crate delog;
@@ -149,8 +150,14 @@ pub mod path;
 /// get information about the C backend
 pub fn version() -> Version {
     Version {
-        format: (ll::LFS_DISK_VERSION_MAJOR, ll::LFS_DISK_VERSION_MINOR),
-        backend: (ll::LFS_VERSION_MAJOR, ll::LFS_VERSION_MINOR),
+        format: (
+            littlefs2_sys::LFS_DISK_VERSION_MAJOR,
+            littlefs2_sys::LFS_DISK_VERSION_MINOR,
+        ),
+        backend: (
+            littlefs2_sys::LFS_VERSION_MAJOR,
+            littlefs2_sys::LFS_VERSION_MINOR,
+        ),
     }
 }
 
